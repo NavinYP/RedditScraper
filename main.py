@@ -5,6 +5,7 @@ import urllib
 import datetime
 from datetime import datetime
 from dotenv import load_dotenv
+from os import path
 import sys
 
 load_dotenv()
@@ -95,8 +96,8 @@ def download_images():
             urllib.request.urlretrieve(submission.url, f"{current_directory}/downloads/{folder_name}/{filename}.jpg")
             print("Download complete.\n")
 
-image_formats = [".jpeg", ".png", ".jpg", ".gif", "img",]
 
+image_formats = [".jpeg", ".png", ".jpg", ".gif", "img",]
 
 print(f"""Welcome to TempestBot {bot_version}.\n""")
 
@@ -110,7 +111,7 @@ while True:
         # Sort methods in a dictionary to access by index key.
         sort_methods = {1: subreddit.controversial, 2: subreddit.gilded, 3: subreddit.hot, 4: subreddit.new,
                         5: subreddit.rising
-            , 6: subreddit.top}
+                        , 6: subreddit.top}
 
         subreddit_intro()
 
