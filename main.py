@@ -1,6 +1,7 @@
 import praw
 import dotenv
 import os
+import urllib
 from dotenv import load_dotenv
 import sys
 
@@ -63,6 +64,15 @@ def print_submissions_full():
         print(submission.id)  # Output: the submission's ID
         print(submission.url)  # Output: the URL the submission points to
 
+def download_images():
+    for submission in sort_methods[method_number](limit=number_of_submissions):
+        print(submission.title)  # Output: the submission's title
+        print(submission.score)  # Output: the submission's score
+        print(submission.id)  # Output: the submission's ID
+        print(submission.url)  # Output: the URL the submission points to
+
+
+image_formats = [".jpeg", ".png", ".jpg", ".gif", "img"]
 
 subreddit_name = intro()
 subreddit = get_subreddit()
