@@ -6,9 +6,9 @@ import sys
 
 load_dotenv()
 
-# TempestBot v0.1
+# TempestBot v0.2
 # Made by Navin Pemarathne (Storm)
-bot_version = "v0.1"
+bot_version = "v0.2"
 
 # Getting credentials from the .env file.
 # todo:Might have to change this later.
@@ -56,20 +56,25 @@ def get_submission_count():
     return user_input
 
 
+def print_submissions_full():
+    for submission in sort_methods[method_number](limit=number_of_submissions):
+        print(submission.title)  # Output: the submission's title
+        print(submission.score)  # Output: the submission's score
+        print(submission.id)  # Output: the submission's ID
+        print(submission.url)  # Output: the URL the submission points to
+
+
 subreddit_name = intro()
 subreddit = get_subreddit()
-subreddit_intro()
-method_number = choose_sort()
-number_of_submissions = get_submission_count()
-
-# print(subreddit_name)
 
 # Sort methods in a dictionary to access by index key.
 sort_methods = {1: subreddit.controversial, 2: subreddit.gilded, 3: subreddit.hot, 4: subreddit.new, 5: subreddit.rising
                 , 6: subreddit.top}
 
-for submission in sort_methods[method_number](limit=number_of_submissions):
-    print(submission.title)  # Output: the submission's title
-    print(submission.score)  # Output: the submission's score
-    print(submission.id)  # Output: the submission's ID
-    print(submission.url)  # Output: the URL the submission points to
+subreddit_intro()
+method_number = choose_sort()
+number_of_submissions = get_submission_count()
+print_submissions_full()
+
+
+
