@@ -6,10 +6,10 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-print(os.getenv("CLIENT_ID"))
+reddit = praw.Reddit(client_id=os.getenv("CLIENT_ID"),
+                     client_secret=os.getenv("CLIENT_SECRET"),
+                     password=os.getenv("PASSWORD"),
+                     user_agent=os.getenv("USER_AGENT"),
+                     username=os.getenv("REDDIT_USERNAME"))
 
-reddit = praw.Reddit(client_id='',
-                     client_secret='',
-                     password='1guiwevlfo00esyy',
-                     user_agent='testscript by /u/fakebot3',
-                     username='fakebot3')
+print(reddit.user.me())
