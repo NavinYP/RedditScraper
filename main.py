@@ -24,8 +24,6 @@ reddit = praw.Reddit(client_id=os.getenv("CLIENT_ID"),
 
 current_directory = os.getcwd()
 
-# print(reddit.user.me())
-
 
 def intro():
     print("""What would you like to do?
