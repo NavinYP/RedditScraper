@@ -79,6 +79,12 @@ def print_submissions_full():
 def download_images():
     time_now = datetime.now()
     current_timestamp = time_now.strftime(f"%y_%m_%d_%H_%M_%S")
+
+    if path.exists(f"{current_directory}/downloads"):
+        pass
+    else:
+        os.mkdir(f"{current_directory}/downloads")
+
     folder_name = f"{subreddit_name}_{current_timestamp}"
     os.mkdir(f"{current_directory}/downloads/{folder_name}")
     for submission in sort_methods[method_number](limit=number_of_submissions):
