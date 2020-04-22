@@ -101,7 +101,7 @@ def download_images():
             print("Download complete.\n")
 
 
-image_formats = [".jpeg", ".png", ".jpg", ".gif", "img",]
+image_formats = [".jpeg", ".png", ".jpg", ".gif", "img", "gfycat", "imgur"]
 
 print(f"""Welcome to TempestBot {bot_version}.\n""")
 
